@@ -288,6 +288,10 @@ body{
 		margin-left: 0;
 	}
 
+	.arrow.clicked{
+		transform: translateX(-50%) rotateX(1800deg);
+	}
+
 	.arrow > div{
 		height: 3px;
 		width: 18px;
