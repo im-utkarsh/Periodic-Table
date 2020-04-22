@@ -7,9 +7,8 @@ let color1 = '#5ffef4';
 let color2 = '#F04118';
 let i = 0;
 let a = 0;
-let isBackspace = false;
+let isBackspace = true;
 const textArray = [
-	'WELCOME!!!',
 	'Learning made Easy.',
 	'Developing Great Minds.',
 	'Learn Periodic Table easily.',
@@ -89,4 +88,4 @@ function typeWrite(array){
 	}
 }
 
-typeWrite(textArray);
+setTimeout(function(){ typeWrite(textArray); }, 2000);

@@ -20,6 +20,14 @@ body{
 	width: 100vw;
 }
 
+.opening-content{
+	height: 100vh;
+	width: 100%;
+	background: linear-gradient(135deg, rgb(95, 254, 244),rgb(240, 65, 25));
+	position: relative;
+	animation: to-periodic 1.35s ease-in-out 2.4s forwards paused;
+}
+
 @keyframes to-periodic{
 	from{
 		clip-path: circle(900px at center);
@@ -27,14 +35,6 @@ body{
 	to{
 		clip-path: circle(0px at center);
 	}
-}
-
-.opening-content{
-	height: 100vh;
-	width: 100%;
-	background: linear-gradient(135deg, rgb(95, 254, 244),rgb(240, 65, 25));
-	position: relative;
-	animation: to-periodic 1.35s ease-in-out 2.4s forwards paused;
 }
 
 .opening-content-animation{
@@ -272,6 +272,20 @@ body{
 }
 
 @media (max-width: 450px){
+	.opening-content{
+		animation: to-periodic .9s ease-in-out 2.4s forwards paused;
+	}
+
+	@keyframes to-periodic{
+		from{
+			clip-path: circle(500px at center);
+		}
+		to{
+			clip-path: circle(0px at center);
+		}
+	}
+
+
 	.heading > .title{
 		font-size: 15vw;
 		letter-spacing: 1.8vw;
