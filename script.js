@@ -1,6 +1,7 @@
 const opening_content = document.querySelector('.opening-content');
 const opening_content_animation = document.querySelector('.opening-content-animation');
 const arrow = document.querySelector('.arrow');
+const test_tube = document.getElementById('test-tube');
 let isFirstPage = true;
 let background = true;  // when opening-content is in front
 let color1 = '#5ffef4';
@@ -55,6 +56,7 @@ arrow.addEventListener('mouseenter', ()=>{
 arrow.addEventListener('click', ()=>{
 	opening_content.style.animationPlayState = 'running';
 	arrow.classList.add('clicked');
+	test_tube.style.animationPlayState = 'running';
 	setTimeout(()=>{
 		isFirstPage = false;
 	}, 4000);
