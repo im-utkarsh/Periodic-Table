@@ -432,6 +432,7 @@ body{
 	width: 36vw;
 	background: #ebebb0;
 	border: 1px solid rgb(51,51,51);
+	color: transparent;
 	border-radius: 9px;
 	font-family: 'Roboto', sans-serif;
 	text-align: center;
@@ -448,10 +449,71 @@ body{
 }
 
 .to-table > .did-u-know > h1{
+	position: relative;
 	font-size: 2.5vw;
+	animation: did-u-know-heading-enterance .27s ease 5.35s forwards paused;
+	margin: 2.4vh 2vw;
+	padding: 2.4vh;
 }
 
-.to-table.active > .did-u-know{
+.to-table > .did-u-know > h1::before , .to-table > .did-u-know > h1::after{
+	opacity: 1;
+	content: "";
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: 1.8px !important;
+	background: #202020;
+	transform: scaleX(0);
+}
+.to-table > .did-u-know > h1::before{
+	top: 49%;
+	animation: heading-lines .27s ease forwards 5s paused, heading-line-top .18s ease forwards 5.27s paused;
+}
+.to-table > .did-u-know > h1::after{
+	bottom: 49%;
+	animation: heading-lines .27s ease forwards 5s paused, heading-line-bottom .18s ease forwards 5.27s paused;
+}
+
+.to-table > .did-u-know > div{
+	position: relative;
+	top: 1.26vw;
+	animation: did-u-know-content-enterance .45s ease forwards 5.4s paused;
+}
+
+@keyframes did-u-know-content-enterance{
+	to{
+		top: 0;
+		color: #202020;
+	}
+}
+
+@keyframes heading-lines{
+	to{
+		transform: scaleX(1);
+	}
+}
+@keyframes heading-line-top{
+	to{
+		top: 0;
+	}
+}
+@keyframes heading-line-bottom{
+	to{
+		bottom: 0;
+	}
+}
+@keyframes did-u-know-heading-enterance{
+	to{
+		color: #202020;
+	}
+}
+
+.to-table.active > .did-u-know,
+.to-table.active > .did-u-know > h1::before,
+.to-table.active > .did-u-know > h1::after,
+.to-table.active > .did-u-know > h1,
+.to-table.active > .did-u-know > div{
 	animation-play-state: running;
 }
 
@@ -668,13 +730,11 @@ body{
 	}
 
 	.to-table.undo > #test-tube{
-		opacity: 1;
 		top: 0;
 		animation: springScaleOut 1.233s linear forwards;
 	}
 
 	.to-table.undo > .did-u-know{
-		opacity: 1;
 		top: 0;
 		animation: springScaleOut 1.233s linear forwards;
 	}
