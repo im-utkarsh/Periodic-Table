@@ -9,6 +9,7 @@ let color2 = '#F04118';
 let i = 0;
 let a = 0;
 let isBackspace = true;
+let nums = [];
 const textArray = [
 	'Learning made Easy.',
 	'Developing Great Minds.',
@@ -16,7 +17,12 @@ const textArray = [
 	'Evolve Critical thinking skills.',
 	'Strengthen Problem Solving.',
 	'Florish with Interactive Teaching.',
+	'Made with ❤ on GitHub.'
 ];
+
+for (let j = 0; j < textArray.length; j++) {
+	nums.push(j);
+}
 
 window.setInterval(()=>{
 	if (isFirstPage) {
@@ -57,6 +63,12 @@ arrow.addEventListener('click', ()=>{
 	opening_content.style.animationPlayState = 'running';
 	arrow.classList.add('clicked');
 	to_table.classList.add('active');
+	setTimeout(function(){
+		to_table.addEventListener('click',()=>{
+			to_table.classList.remove('active');
+			to_table.classList.add('undo');
+	})}, 5400);
+	
 	setTimeout(()=>{
 		isFirstPage = false;
 	}, 4000);
@@ -83,7 +95,14 @@ function typeWrite(array){
 			else{
 				isBackspace = false;
 				i=0;
-				a = (a + 1) % array.length;
+				b = Math.floor(Math.random() * nums.length);
+				a=nums[b];
+				nums.splice(b,1);
+				if (nums.length===0) {
+					for (let j = 0; j < textArray.length; j++) {
+						nums.push(j);
+					}
+				}
 				setTimeout(function(){ typeWrite(array); }, 200);
 			}
 		}

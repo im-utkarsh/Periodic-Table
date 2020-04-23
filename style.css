@@ -16,7 +16,7 @@ body{
 	width: 100%;
 	background: linear-gradient(135deg, rgb(95, 254, 244),rgb(240, 65, 25));
 	position: relative;
-	animation: to-periodic 1.35s ease-in-out 2.4s forwards paused;
+	animation: to-periodic 1.08s ease-in-out 2.4s forwards paused;
 }
 
 @keyframes to-periodic{
@@ -244,19 +244,25 @@ body{
 	top: 0;
 	height: 100vh;
 	width: 100vw;
-	padding: calc(20vw / 2);
+	padding: 10vw;
 }
 
 #test-tube{
 	position: relative;
 	width: 16.7vw;
-	left: 25%;
+	left: 31%;
 	opacity: 0;
-	animation: twirlIn 3.717s linear 3.6s forwards paused, slide-for-div .27s ease 4.8s forwards paused /*, swashOut 1s forwards 6s paused*/;		/*3.717s*/
+	animation: twirlIn 3.717s linear 3.5s forwards paused, slide-for-div .27s ease 4.7s forwards paused;
 }
 
 .to-table.active > #test-tube{
 	animation-play-state: running;
+}
+
+.to-table.undo > #test-tube{
+	opacity: 1;
+	left: 0;
+	animation: springScaleOut 1.233s linear forwards;
 }
 
 @keyframes twirlIn {
@@ -373,28 +379,55 @@ body{
 	}
 }
 
-@keyframes swashOut {
+@keyframes springScaleOut {
 	0% {
-		opacity: 1;
-		transform:translate(-50%, -50%) scale(1, 1);
-		transform-origin: 50% 50%;
-	}
-	80% {
-		opacity: 1;
-		transform:translate(-50%, -50%) scale(0.9, 0.9);
-		transform-origin: 50% 50%;
-	}
+		transform: scaleX(1) scaleY(1); }
+	4% {
+		transform: scaleX(1.657) scaleY(1.657); }
+	8% {
+		transform: scaleX(1.709) scaleY(1.709); }
+	12% {
+		transform: scaleX(1.219) scaleY(1.219); }
+	16% {
+		transform: scaleX(0.624) scaleY(0.624); }
+	20% {
+		transform: scaleX(0.159) scaleY(0.159); }
+	24% {
+		transform: scaleX(-0.104) scaleY(-0.104); }
+	28% {
+		transform: scaleX(-0.195) scaleY(-0.195); }
+	32% {
+		transform: scaleX(-0.179) scaleY(-0.179); }
+	36% {
+		transform: scaleX(-0.117) scaleY(-0.117); }
+	40% {
+		transform: scaleX(-0.053) scaleY(-0.053); }
+	44% {
+		transform: scaleX(-0.008) scaleY(-0.008); }
+	48% {
+		transform: scaleX(0.016) scaleY(0.016); }
+	52% {
+		transform: scaleX(0.021) scaleY(0.021); }
+	60% {
+		transform: scaleX(0.014) scaleY(0.014);
+		opacity: 0.000; }
+	64% {
+		transform: scaleX(0.006) scaleY(0.006); }
+	68% {
+		transform: scaleX(0.001) scaleY(0.001); }
+	72% {
+		transform: scaleX(-0.002) scaleY(-0.002); }
+	92% {
+		transform: scaleX(0) scaleY(0); }
 	100% {
-		opacity: 0;
-		transform:translate(-50%, -50%) scale(0, 0);
-		transform-origin: 50% 50%;
-	}
+		transform: scaleX(0) scaleY(0);
+		opacity: 0.000; }
 }
 
 .to-table > .did-u-know{
 	cursor: default;
 	position: relative;
-	left: 25%;
+	left: 31%;
 	opacity: 0;
 	width: 36vw;
 	background: #ebebb0;
@@ -404,11 +437,7 @@ body{
 	text-align: center;
 	padding: 5.4vh 2.1vw;
 	font-size: 1.26vw;
-	animation: did-u-know-enterance .27s ease 4.8s forwards paused;
-}
-
-.to-table.active > .did-u-know{
-	animation-play-state: running;
+	animation: did-u-know-enterance .27s ease 4.7s forwards paused;
 }
 
 @keyframes did-u-know-enterance{
@@ -422,7 +451,17 @@ body{
 	font-size: 2.5vw;
 }
 
-@media (max-width: 1024px) {
+.to-table.active > .did-u-know{
+	animation-play-state: running;
+}
+
+.to-table.undo > .did-u-know{
+	opacity: 1;
+	left: 0;
+	animation: springScaleOut 1.233s linear forwards;
+}
+
+@media only screen and (max-width: 1024px) {
 	.to-table{
 		padding: 3vw;
 	}
@@ -442,7 +481,7 @@ body{
 	}
 }
 
-@media (max-width: 768px) {
+@media only screen and (max-width: 768px) {
 	.waves {
 		height:40px;
 		min-height:40px;
@@ -507,7 +546,7 @@ body{
 	}
 }
 
-@media (max-width: 450px){
+@media only screen and (max-width: 450px){
 	.opening-content{
 		animation: to-periodic .9s ease-in-out 2.4s forwards paused;
 	}
@@ -595,10 +634,10 @@ body{
 
 	#test-tube{
 		width: 45vw;
-		margin-bottom: 6vh;
+		margin-bottom: 4.5vh;
 		left: 0;
 		top: 25%;
-		animation: twirlIn 3.717s linear 3.3s forwards paused, slide-for-div .27s ease 4.5s forwards paused/*, swashOut 1s forwards 5.1s paused*/;
+		animation: twirlIn 3.717s linear 3.3s forwards paused, slide-for-div .18s ease 4.5s forwards paused;
 	}
 
 	@keyframes slide-for-div{
@@ -610,10 +649,10 @@ body{
 	.to-table > .did-u-know{
 		left: 0;
 		top: 25%;
-		width: 72vw;
-		padding: 3.9vw;
+		width: 84vw;
+		padding: 3.6vw;
 		font-size: 4.5vw;
-		animation: did-u-know-enterance .27s ease 4.5s forwards paused;
+		animation: did-u-know-enterance .18s ease 4.5s forwards paused;
 	}
 
 	@keyframes did-u-know-enterance{
@@ -626,5 +665,17 @@ body{
 	.to-table > .did-u-know > h1{
 		font-size: 7.2vw;
 		margin-bottom: 3.6vh;
+	}
+
+	.to-table.undo > #test-tube{
+		opacity: 1;
+		top: 0;
+		animation: springScaleOut 1.233s linear forwards;
+	}
+
+	.to-table.undo > .did-u-know{
+		opacity: 1;
+		top: 0;
+		animation: springScaleOut 1.233s linear forwards;
 	}
 }
