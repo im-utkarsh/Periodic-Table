@@ -19,10 +19,13 @@ const textArray = [
 	'Florish with Interactive Teaching.',
 	'Made with ❤ on GitHub.'
 ];
-
-for (let j = 0; j < textArray.length; j++) {
-	nums.push(j);
+function resetNums(){
+	for (let j = 0; j < textArray.length; j++) {
+		nums.push(j);
+	}
 }
+
+resetNums();
 
 window.setInterval(()=>{
 	if (isFirstPage) {
@@ -39,17 +42,19 @@ function getRandomColor() {
 	return color;
 }
 
+function addingColors(target){
+	color1 = color2;
+	color2 = getRandomColor();
+	target.style.background = `linear-gradient(135deg,${color1},${color2})`;
+}
+
 function background_change(){
 	if (background) {
-		color1 = color2;
-		color2 = getRandomColor();
-		opening_content_animation.style.background = `linear-gradient(135deg,${color1},${color2})`;
+		addingColors(opening_content_animation);
 		opening_content_animation.classList.add('active');
 		background = false;
 	} else {
-		color1 = color2;
-		color2 = getRandomColor();
-		opening_content.style.background = `linear-gradient(135deg,${color1},${color2})`;
+		addingColors(opening_content);
 		opening_content_animation.classList.remove('active');
 		background = true;
 	}
@@ -60,14 +65,16 @@ arrow.addEventListener('mouseenter', ()=>{
 });
 
 arrow.addEventListener('click', ()=>{
-	opening_content.style.animationPlayState = 'running';
 	arrow.classList.add('clicked');
+	opening_content.style.animationPlayState = 'running';
 	to_table.classList.add('active');
 	setTimeout(function(){
 		to_table.addEventListener('click',()=>{
 			to_table.classList.remove('active');
 			to_table.classList.add('undo');
-	})}, 5400);
+		});
+		opening_content.style.display = 'none';
+	}, 5400);
 	
 	setTimeout(()=>{
 		isFirstPage = false;
@@ -99,9 +106,7 @@ function typeWrite(array){
 				a=nums[b];
 				nums.splice(b,1);
 				if (nums.length===0) {
-					for (let j = 0; j < textArray.length; j++) {
-						nums.push(j);
-					}
+					resetNums();
 				}
 				setTimeout(function(){ typeWrite(array); }, 200);
 			}
