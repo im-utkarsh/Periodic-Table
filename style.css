@@ -22,9 +22,11 @@ body{
 
 @keyframes to-periodic{
 	from{
+		transform: translateZ(0);
 		clip-path: circle(900px at center);
 	}
 	to{
+		transform: translateZ(0);
 		clip-path: circle(0px at center);
 	}
 }
@@ -592,13 +594,13 @@ body{
 
 	@keyframes arrow-up-animation-delayed{
 		to{
-			transform: rotate(51deg) scale(1.02) translate(-2px, 2px);
+			transform: rotate(51deg) scale(1.02) translate3d(-2px, 2px, 0);
 		}
 	}
 
 	@keyframes arrow-down-animation-delayed{
 		to{
-			transform: rotate(-51deg) scale(1.02) translate(-2px, -2px);
+			transform: rotate(-51deg) scale(1.02) translate3d(-2px, -2px, 0);
 		}
 	}
 
@@ -628,9 +630,11 @@ body{
 
 	@keyframes to-periodic{
 		from{
+			transform: translateZ(0);
 			clip-path: circle(500px at center);
 		}
 		to{
+			transform: translateZ(0);
 			clip-path: circle(0px at center);
 		}
 	}
@@ -652,37 +656,37 @@ body{
 		width: 18vw;
 		height: 18vw;
 		left: 50%;
-		transform: translateX(-50%);
+		transform: translate3d(-50%,0,0);
 		margin-left: 0;
 		animation: wobble 9s ease-in-out infinite;
 	}
 
 	@keyframes wobble {		/*devided by : 9*/
 		1.85% {		/*16.65*/
-			transform: translateX(calc(-50% + 6px));
+			transform: translate3d(calc(-50% + 6px),0,0);
 		}
 		3.7% {		/*33.3*/
-			transform: translateX(calc(-50% - 5px));
+			transform: translate3d(calc(-50% - 5px),0,0);
 		}
 		5.55% {		/*49.95*/
-			transform: translateX(calc(-50% + 4px));
+			transform: translate3d(calc(-50% + 4px),0,0);
 		}
 		7.4% {		/*66.6*/
-			transform: translateX(calc(-50% - 2px));
+			transform: translate3d(calc(-50% - 2px),0,0);
 		}
 		9.25% {		/*83.25*/
-			transform: translateX(calc(-50% + 1px));
+			transform: translate3d(calc(-50% + 1px),0,0);
 		}
 		11.1% {		/*100*/
-			transform: translateX(-50%);
+			transform: translate3d(-50%,0,0);
 		}
 		100%{
-			transform: translateX(-50%);
+			transform: translate3d(-50%,0,0);
 		}
 	}
 
 	.arrow.clicked{
-		transform: translateX(-50%) rotateX(1800deg);
+		transform: translate3d(-50%,0,0) rotateX(1800deg);
 	}
 
 	.arrow > div{
@@ -694,7 +698,7 @@ body{
 	.heading > .subhead{
 		position: relative;
 		left: 50%;
-		transform: translateX(-50%);
+		transform: translate3d(-50%,0,0);
 		display: inline-block;
 		padding: 3.6px;
 		margin-top: 27px;
