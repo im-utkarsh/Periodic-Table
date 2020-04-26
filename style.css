@@ -15,18 +15,18 @@ body{
 	height: 100vh;
 	width: 100%;
 	background: linear-gradient(135deg, rgb(95, 254, 244),rgb(240, 65, 25));
-	transform: translateZ(0);
+	transform: translate3d(0,0,0);
 	position: relative;
 	animation: to-periodic 1.08s ease-in-out 2.4s forwards paused;
 }
 
 @keyframes to-periodic{
 	from{
-		transform: translateZ(0);
+		transform: translate3d(0,0,0);
 		clip-path: circle(900px at center);
 	}
 	to{
-		transform: translateZ(0);
+		transform: translate3d(0,0,0);
 		clip-path: circle(0px at center);
 	}
 }
@@ -72,7 +72,7 @@ body{
 	border-radius: 50%;
 	background: rgba(0,0,0,.5);
 	margin-left: -3vw;
-	transform: translateZ(0);
+	transform: translate3d(0,0,0);
 	transition: transform 2.4s ease;
 }
 
@@ -82,22 +82,22 @@ body{
 
 @keyframes wobble {
 	16.65% {
-		transform: translateX(6px);
+		transform: translate3d(6px,0,0);
 	}
 	33.3% {
-		transform: translateX(-5px);
+		transform: translate3d(-5px,0,0);
 	}
 	49.95% {
-		transform: translateX(4px);
+		transform: translate3d(4px,0,0);
 	}
 	66.6% {
-		transform: translateX(-2px);
+		transform: translate3d(-2px,0,0);
 	}
 	83.25% {
-		transform: translateX(1px);
+		transform: translate3d(1px,0,0);
 	}
 	100% {
-		transform: translateX(0);
+		transform: translate3d(0,0,0);
 	}
 }
 
@@ -124,7 +124,7 @@ body{
 }
 
 .arrow.clicked{
-	transform: translateZ(0) rotateX(1800deg);
+	transform: translate3d(0,0,0) rotateX(1800deg);
 }
 
 @keyframes arrow-up{
@@ -164,6 +164,7 @@ body{
 	display: inline-block;
 	margin-left: 3px;
 	background-color: white;
+	transform: translate3d(0,0,0);
 	animation-name: cursor-blink;
 	animation-duration: 0.5s;
 	animation-iteration-count: infinite;
@@ -174,15 +175,19 @@ body{
 
 @keyframes cursor-blink {
 	0% {
+		transform: translate3d(0,0,0);
 		opacity: 1;
 	}
 	49% {
+		transform: translate3d(0,0,0);
 		opacity: 1;
 	}
 	50% {
+		transform: translate3d(0,0,0);
 		opacity: 0;
 	}
 	100% {
+		transform: translate3d(0,0,0);
 		opacity: 0;
 	}
 }
@@ -249,7 +254,7 @@ body{
 	height: 100vh;
 	width: 100vw;
 	padding: 10vw;
-	transform: translateZ(0);
+	transform: translate3d(0,0,0);
 }
 
 #test-tube{
@@ -257,7 +262,7 @@ body{
 	width: 16.7vw;
 	left: 31%;
 	opacity: 0;
-	transform: translateZ(0);
+	transform: translate3d(0,0,0);
 	animation: twirlIn 3.717s linear 3.5s forwards paused, slide-for-div .27s ease 4.7s forwards paused;
 }
 
@@ -267,108 +272,108 @@ body{
 
 @keyframes twirlIn {
 	0% {
-		transform: rotateZ(180deg) scaleX(0.1) scaleY(0.1);
+		transform: rotateZ(180deg) scaleX(0.1) scaleY(0.1) translate3d(0,0,0);
 		opacity: 0.000;
 	}
 	2% {
-		transform: rotateZ(138.19deg) scaleX(0.682) scaleY(0.682);
+		transform: rotateZ(138.19deg) scaleX(0.682) scaleY(0.682) translate3d(0,0,0);
 		opacity: 0.248;
 	}
 	4% {
-		transform: rotateZ(-24.958deg) scaleX(1.369) scaleY(1.369);
+		transform: rotateZ(-24.958deg) scaleX(1.369) scaleY(1.369) translate3d(0,0,0);
 		opacity: 0.496;
 	}
 	6% {
-		transform: rotateZ(-90.306deg) scaleX(1.36) scaleY(1.36);
+		transform: rotateZ(-90.306deg) scaleX(1.36) scaleY(1.36) translate3d(0,0,0);
 		opacity: 0.743;
 	}
 	8% {
-		transform: rotateZ(-42.944deg) scaleX(1.022) scaleY(1.022);
+		transform: rotateZ(-42.944deg) scaleX(1.022) scaleY(1.022) translate3d(0,0,0);
 		opacity: 0.991;
 	}
 	10% {
-		transform: rotateZ(21.971deg) scaleX(0.858) scaleY(0.858);
+		transform: rotateZ(21.971deg) scaleX(0.858) scaleY(0.858) translate3d(0,0,0);
 	}
 	12% {
-		transform: rotateZ(43.805deg) scaleX(0.898) scaleY(0.898);
+		transform: rotateZ(43.805deg) scaleX(0.898) scaleY(0.898) translate3d(0,0,0);
 	}
 	14% {
-		transform: rotateZ(15.491deg) scaleX(1) scaleY(1);
+		transform: rotateZ(15.491deg) scaleX(1) scaleY(1) translate3d(0,0,0);
 	}
 	16% {
-		transform: rotateZ(-19.543deg) scaleX(1.056) scaleY(1.056);
+		transform: rotateZ(-19.543deg) scaleX(1.056) scaleY(1.056) translate3d(0,0,0);
 	}
 	18% {
-		transform: rotateZ(-20.575deg) scaleX(1.034) scaleY(1.034);
+		transform: rotateZ(-20.575deg) scaleX(1.034) scaleY(1.034) translate3d(0,0,0);
 	}
 	20% {
-		transform: rotateZ(-0.334deg) scaleX(0.99) scaleY(0.99);
+		transform: rotateZ(-0.334deg) scaleX(0.99) scaleY(0.99) translate3d(0,0,0);
 	}
 	22% {
-		transform: rotateZ(10.912deg) scaleX(0.979) scaleY(0.979);
+		transform: rotateZ(10.912deg) scaleX(0.979) scaleY(0.979) translate3d(0,0,0);
 	}
 	24% {
-		transform: rotateZ(7.453deg) scaleX(0.993) scaleY(0.993);
+		transform: rotateZ(7.453deg) scaleX(0.993) scaleY(0.993) translate3d(0,0,0);
 	}
 	26% {
-		transform: rotateZ(-1.248deg) scaleX(1.004) scaleY(1.004);
+		transform: rotateZ(-1.248deg) scaleX(1.004) scaleY(1.004) translate3d(0,0,0);
 	}
 	28% {
-		transform: rotateZ(-5.813deg) scaleX(1.007) scaleY(1.007);
+		transform: rotateZ(-5.813deg) scaleX(1.007) scaleY(1.007) translate3d(0,0,0);
 	}
 	30% {
-		transform: rotateZ(-3.002deg) scaleX(1.002) scaleY(1.002);
+		transform: rotateZ(-3.002deg) scaleX(1.002) scaleY(1.002) translate3d(0,0,0);
 	}
 	32% {
-		transform: rotateZ(1.256deg) scaleX(0.998) scaleY(0.998);
+		transform: rotateZ(1.256deg) scaleX(0.998) scaleY(0.998) translate3d(0,0,0);
 	}
 	34% {
-		transform: rotateZ(2.884deg);
+		transform: rotateZ(2.884deg) translate3d(0,0,0);
 	}
 	36% {
-		transform: rotateZ(1.121deg);
+		transform: rotateZ(1.121deg) translate3d(0,0,0);
 	}
 	38% {
-		transform: rotateZ(-1.229deg) scaleX(1.001) scaleY(1.001);
+		transform: rotateZ(-1.229deg) scaleX(1.001) scaleY(1.001) translate3d(0,0,0);
 	}
 	40% {
-		transform: rotateZ(-1.367deg);
+		transform: rotateZ(-1.367deg) translate3d(0,0,0);
 	}
 	42% {
-		transform: rotateZ(-0.066deg);
+		transform: rotateZ(-0.066deg) translate3d(0,0,0);
 	}
 	44% {
-		transform: rotateZ(0.694deg);
+		transform: rotateZ(0.694deg) translate3d(0,0,0);
 	}
 	46% {
-		transform: rotateZ(0.504deg);
+		transform: rotateZ(0.504deg) translate3d(0,0,0);
 	}
 	48% {
-		transform: rotateZ(-0.06deg);
+		transform: rotateZ(-0.06deg) translate3d(0,0,0);
 	}
 	50% {
-		transform: rotateZ(-0.375deg);
+		transform: rotateZ(-0.375deg) translate3d(0,0,0);
 	}
 	52% {
-		transform: rotateZ(-0.207deg);
+		transform: rotateZ(-0.207deg) translate3d(0,0,0);
 	}
 	54% {
-		transform: rotateZ(0.075deg);
+		transform: rotateZ(0.075deg) translate3d(0,0,0);
 	}
 	56% {
-		transform: rotateZ(0.189deg);
+		transform: rotateZ(0.189deg) translate3d(0,0,0);
 	}
 	58% {
-		transform: rotateZ(0.077deg);
+		transform: rotateZ(0.077deg) translate3d(0,0,0);
 	}
 	60% {
-		transform: rotateZ(-0.077deg);
+		transform: rotateZ(-0.077deg) translate3d(0,0,0);
 	}
 	66% {
-		transform: rotateZ(0.045deg);
+		transform: rotateZ(0.045deg) translate3d(0,0,0);
 	}
 	100% {
-		transform: rotateZ(0deg) scaleX(1) scaleY(1);
+		transform: rotateZ(0deg) scaleX(1) scaleY(1) translate3d(0,0,0);
 		opacity: 1.000;
 	}
 }
@@ -381,8 +386,6 @@ body{
 
 .to-table > .did-u-know{
 	cursor: default;
-	position: relative;
-	left: 31%;
 	opacity: 0;
 	width: 36vw;
 	background: #ebebb0;
@@ -393,13 +396,13 @@ body{
 	text-align: center;
 	padding: 5.4vh 2.1vw;
 	font-size: 1.26vw;
-	transform: translateZ(0);
+	transform: translate3d(31%,0,0);
 	animation: did-u-know-enterance .27s ease 4.7s forwards paused;
 }
 
 @keyframes did-u-know-enterance{
 	to{
-		left: 0;
+		transform: translate3d(0,0,0);
 		opacity: 1;
 	}
 }
@@ -475,7 +478,7 @@ body{
 
 .to-table.undo > .did-u-know{
 	opacity: 1;
-	left: 0;
+	transform: translate3d(0,0,0);
 	animation: slide-out .18s ease forwards .1s;
 }
 
@@ -534,12 +537,9 @@ body{
 	display: grid;
 	overflow-y: auto;
 	grid-template-rows: calc(7/9 * 135%) calc(2/9 * 135%) .9%;
-	grid-row-gap: 9%;
-	padding: 45px 36px 36px;
-}
-
-.periodic-table *{
-	filter: none;
+	grid-template-rows: calc(7/9 * 63vw) calc(2/9 * 63vw) .9%;
+	grid-row-gap: 4.5vw;
+	padding: 45px 22.5px 22.5px;
 }
 
 .periodic-table.active{
@@ -553,36 +553,40 @@ body{
 	flex-direction: column;
 	justify-content: space-around;
 	align-items: center;
-	opacity: .83;
+	opacity: .84;
 	color: rgba(27,27,27);
 	transform: translateZ(0) scale(1);
 	border-radius: 3px;
-	padding: 9px 0px;
+	padding: 3px 0px;
 	transition: all .21s;
 	cursor: pointer;
 }
 .periodic-table .element:hover{
 	opacity: 1;
-	transform: translateZ(0) scale(1.08);
+	transform: translateZ(0) scale(1.11);
+	box-shadow: 0 0 9px 0 rgba(0,0,0,.135);
+	z-index: 1;
 }
 
-.hydrogen.element > div:nth-child(1){			/*REMEMBER*/
+.element > div:nth-child(1){
 	align-self: flex-start;
 	padding-left: 13.5%;
-	font-size: 1vw;
+	font-size: .9vw;
 }
 
-.hydrogen.element > div:nth-child(2){			/*REMEMBER*/
+.element > div:nth-child(2){
 	font-weight: bold;
 	font-size: 1.2vw;
+	letter-spacing: .2vw;
 }
 
-.hydrogen.element > div:nth-child(3){			/*REMEMBER*/
-	font-size: .9vw;
+.element > div:nth-child(3){
+	font-size: .81vw;
 }
 
-.hydrogen.element > div:nth-child(4){			/*REMEMBER*/
-	font-size: .9vw;
+.element > div:nth-child(4){
+	font-size: .84vw;
+	letter-spacing: 1px;
 }
 
 .periodic-table > .spd{
@@ -592,7 +596,7 @@ body{
 	grid-gap: 2px;
 }
 
-.spd > .hydrogen{
+.spd > [data-atomic-no="1"]{
 	background: linear-gradient(#aaffa9, #11ffbd);
 }
 
@@ -604,29 +608,8 @@ body{
 	grid-gap: 2px;
 }
 
-.s-block > div{
+.s-block > .element{
 	background: linear-gradient(#02aab0, #00cdac);
-}
-
-.spd > .p-block{
-	display: grid;
-	grid-template-rows: repeat(6,1fr);
-	grid-column: span 1;
-	grid-row: 2 / end;
-	grid-gap: 2px;
-}
-
-.p-block > div{
-	background: linear-gradient(#ff94a6, #ffae7f);
-}
-
-.p-block.noble-gases{
-	grid-row: 1 / end;
-	grid-template-rows: repeat(7,1fr);
-}
-
-.p-block.noble-gases > div{
-	background: linear-gradient(#f5a08a, #fbc24c);
 }
 
 .spd > .d-block{
@@ -637,7 +620,7 @@ body{
 	grid-auto-flow: column;
 }
 
-.d-block > div{
+.d-block > .element{
 	background: linear-gradient(#ff7e5f, #feb47b);
 }
 
@@ -657,6 +640,35 @@ body{
 	grid-row: 7 / span 1;
 }
 
+.spd > .p-block{
+	display: grid;
+	grid-template-rows: repeat(6,1fr);
+	grid-column: span 1;
+	grid-row: 2 / end;
+	grid-gap: 2px;
+}
+
+.p-block > .element{
+	background: linear-gradient(#908038, #ecc462);
+}
+
+.element.non-metal{
+	background: linear-gradient(#ff94a6, #ffae7f);
+}
+
+.element.metalloid{
+	background: linear-gradient(#37c0c1, #fdc243);
+}
+
+.p-block.noble-gases{
+	grid-row: 1 / end;
+	grid-template-rows: repeat(7,1fr);
+}
+
+.p-block.noble-gases > .element{
+	background: linear-gradient(#f5a08a, #fbc24c);
+}
+
 .periodic-table > .f{
 	display: grid;
 	grid-template-rows:repeat(2 ,1fr);
@@ -673,8 +685,20 @@ body{
 	grid-auto-flow: column;
 }
 
-.f-block > div{
+.element.lanthanoids{
 	background: linear-gradient(#d786d7, #f87c92);
+}
+
+.f-block.lanthanoids > .element{
+	background: linear-gradient(#d786d7, #f87c92);
+}
+
+.element.actinoids{
+	background: linear-gradient(#3193c1, #ec9649);
+}
+
+.f-block.actinoids > .element{
+	background: linear-gradient(#3193c1, #ec9649);
 }
 
 @media only screen and (max-width: 1024px) {
@@ -694,6 +718,56 @@ body{
 
 	.to-table > .did-u-know > h1{
 		font-size: 3.8vw;
+	}
+
+	.periodic-table{
+		padding: 36px 3px 3px;
+		align-items: center;
+		grid-gap: 6vw;
+	}
+
+	.element > div:nth-child(1){
+		font-size: 1.2vw;
+		padding: 2px;
+	}
+
+	.element > div:nth-child(2){
+		font-size: 1.8vw;
+		letter-spacing: .24vw;
+		padding: 6px 0px;
+	}
+
+	.element > div:nth-child(3){
+		display: none;
+	}
+
+	.element > div:nth-child(4){
+		font-size: 1vw;
+		padding: 1px;
+	}
+
+	.periodic-table > .spd{
+		grid-gap: 1px;
+	}
+
+	.spd > .s-block{
+		grid-gap: 1px;
+	}
+
+	.spd > .p-block{
+		grid-gap: 1px;
+	}
+
+	.spd > .d-block{
+		grid-gap: 1px;
+	}
+
+	.periodic-table > .f{
+		grid-gap: 1px;
+	}
+
+	.f > .f-block{
+		grid-gap: 1px;
 	}
 }
 
@@ -769,11 +843,11 @@ body{
 
 	@keyframes to-periodic{
 		from{
-			transform: translateZ(0);
+			transform: translate3d(0,0,0);
 			clip-path: circle(500px at center);
 		}
 		to{
-			transform: translateZ(0);
+			transform: translate3d(0,0,0);
 			clip-path: circle(0px at center);
 		}
 	}
@@ -865,19 +939,11 @@ body{
 	}
 
 	.to-table > .did-u-know{
-		left: 0;
-		top: 25%;
+		transform: translate3d(0,25%,0);
 		width: 84vw;
 		padding: 3.6vw;
 		font-size: 4.5vw;
 		animation: did-u-know-enterance .18s ease 4.5s forwards paused;
-	}
-
-	@keyframes did-u-know-enterance{
-		to{
-			top: 0;
-			opacity: 1;
-		}
 	}
 
 	.to-table > .did-u-know > h1{
