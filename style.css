@@ -436,13 +436,13 @@ body{
 
 .to-table > .did-u-know > div{
 	position: relative;
-	top: 1.26vw;
+	transform: translate3d(0,1.26vw,0);
 	animation: did-u-know-content-enterance .45s ease forwards 5.4s paused;
 }
 
 @keyframes did-u-know-content-enterance{
 	to{
-		top: 0;
+		transform: translate3d(0,0,0);
 		color: #202020;
 	}
 }
@@ -536,16 +536,18 @@ body{
 	font-family: 'Roboto', sans-serif;
 	display: grid;
 	overflow-y: auto;
-	grid-template-rows: calc(7/9 * 135%) calc(2/9 * 135%) .9%;
-	grid-template-rows: calc(7/9 * 63vw) calc(2/9 * 63vw) .9%;
-	grid-row-gap: 4.5vw;
-	padding: 45px 22.5px 22.5px;
+	grid-template-rows: 6vw calc(7/9 * 63vw) 4.5vw calc(2/9 * 63vw) 4.5vw;
+	padding: 0 33.3px 0 13.5px;
 }
 
 .periodic-table.active{
 	opacity: 1;
 	transform: translate3d(0,0,0);
 	pointer-events: auto;
+}
+
+.group-name{
+	display: none;
 }
 
 .periodic-table .element{
@@ -555,7 +557,7 @@ body{
 	align-items: center;
 	opacity: .84;
 	color: rgba(27,27,27);
-	transform: translateZ(0) scale(1);
+	transform: translate3d(0,0,0) scale(1);
 	border-radius: 3px;
 	padding: 3px 0px;
 	transition: all .21s;
@@ -563,7 +565,7 @@ body{
 }
 .periodic-table .element:hover{
 	opacity: 1;
-	transform: translateZ(0) scale(1.11);
+	transform: translate3d(0,0,0) scale(1.11);
 	box-shadow: 0 0 9px 0 rgba(0,0,0,.135);
 	z-index: 1;
 }
@@ -581,7 +583,7 @@ body{
 }
 
 .element > div:nth-child(3){
-	font-size: .81vw;
+	font-size: .78vw;
 }
 
 .element > div:nth-child(4){
@@ -591,9 +593,52 @@ body{
 
 .periodic-table > .spd{
 	display: grid;
-	grid-template-rows:repeat(7,1fr);
-	grid-template-columns: repeat(18, 1fr);
+	grid-row: 2 / span 1;
+	grid-template-rows: repeat(7, 1fr);
+	grid-template-columns: 1.35% repeat(18, 1fr);
 	grid-gap: 2px;
+}
+
+.spd > .period{
+	display: grid;
+	grid-column: span 1;
+	grid-row: 1 / end;
+	grid-template-rows: repeat(7, 1fr);
+	align-items: center;
+	justify-content: center;
+	font-size: 1.35vw;
+}
+
+.group{
+	display: grid;
+	align-self: end;
+	text-align: center;
+	font-size: 1.35vw;
+	pointer-events: none;
+}
+
+.periodic-table > .group:first-child{
+	grid-template-columns: 1.35% repeat(18, 1fr);
+}
+
+.group:first-child > div:first-child{
+	grid-column: 2;
+}
+
+.group:first-child > div:last-child{
+	grid-column: -2;
+}
+
+.s-block + .group{
+	grid-template-columns: repeat(10,1fr);
+	grid-row: 3 / span 1;
+	grid-column: 4 / span 10;
+}
+
+.d-block + .group{
+	grid-row: 1 / span 1;
+	grid-template-columns: repeat(5,1fr);
+	grid-column: 14 / span 5;
 }
 
 .spd > [data-atomic-no="1"]{
@@ -602,53 +647,64 @@ body{
 
 .spd > .s-block{
 	display: grid;
-	grid-template-rows: repeat(6,1fr);
-	grid-column: span 1;
+	grid-column: 2 / span 2;
 	grid-row: 2 / end;
+	grid-template-columns: repeat(2,1fr);
+	grid-template-rows: repeat(6,1fr);
 	grid-gap: 2px;
 }
 
-.s-block > .element{
+.s-block > div{
+	display: grid;
+	grid-column: span 1;
+	grid-row: 1 / end;
+	grid-gap: 2px;
+	grid-template-rows: repeat(6,1fr);
+}
+
+.s-block .element{
 	background: linear-gradient(#02aab0, #00cdac);
 }
 
 .spd > .d-block{
 	display: grid;
+	grid-column: 4 / span 10;
+	grid-row: 4 / span 4;
 	grid-template-columns: repeat(10,1fr);
-	grid-column: 3 / span 10;
+	grid-template-rows: repeat(4,1fr);
 	grid-gap: 2px;
-	grid-auto-flow: column;
 }
 
-.d-block > .element{
+.d-block > div{
+	display: grid;
+	grid-row: span 1;
+	grid-column: 1 / end;
+	grid-template-columns: repeat(10,1fr);
+	grid-gap: 2px;
+}
+
+.d-block .element{
 	background: linear-gradient(#ff7e5f, #feb47b);
-}
-
-.d-block.period-4{
-	grid-row: 4 / span 1;
-}
-
-.d-block.period-5{
-	grid-row: 5 / span 1;
-}
-
-.d-block.period-6{
-	grid-row: 6 / span 1;
-}
-
-.d-block.period-7{
-	grid-row: 7 / span 1;
 }
 
 .spd > .p-block{
 	display: grid;
-	grid-template-rows: repeat(6,1fr);
-	grid-column: span 1;
-	grid-row: 2 / end;
+	grid-column: 14 / end;
+	grid-row: 1 / end;
+	grid-template-columns: repeat(6,1fr);
+	grid-template-rows: repeat(7,1fr);
 	grid-gap: 2px;
 }
 
-.p-block > .element{
+.p-block > div{
+	display: grid;
+	grid-row: 2 / end;
+	grid-column: span 1;
+	grid-template-rows: repeat(6,1fr);
+	grid-gap: 2px;
+}
+
+.p-block .element{
 	background: linear-gradient(#908038, #ecc462);
 }
 
@@ -660,36 +716,36 @@ body{
 	background: linear-gradient(#37c0c1, #fdc243);
 }
 
-.p-block.noble-gases{
+.p-block > .noble-gases{
 	grid-row: 1 / end;
 	grid-template-rows: repeat(7,1fr);
 }
 
-.p-block.noble-gases > .element{
+.p-block > .noble-gases > .element{
 	background: linear-gradient(#f5a08a, #fbc24c);
 }
 
-.periodic-table > .f{
+.periodic-table > .f-block{
 	display: grid;
+	grid-row: 4 / span 1;
 	grid-template-rows:repeat(2 ,1fr);
-	grid-template-columns:repeat(18, 1fr);
+	grid-template-columns: 1.35% repeat(18, 1fr);
 	grid-gap: 2px;
 }
 
-.f > .f-block{
+.f-block > div{
 	display: grid;
 	grid-template-columns:repeat(15, 1fr);
 	grid-column: 3 / span 15;
 	grid-row: span 1;
 	grid-gap: 2px;
-	grid-auto-flow: column;
 }
 
 .element.lanthanoids{
 	background: linear-gradient(#d786d7, #f87c92);
 }
 
-.f-block.lanthanoids > .element{
+.lanthanoids > .element{
 	background: linear-gradient(#d786d7, #f87c92);
 }
 
@@ -697,8 +753,12 @@ body{
 	background: linear-gradient(#3193c1, #ec9649);
 }
 
-.f-block.actinoids > .element{
+.actinoids > .element{
 	background: linear-gradient(#3193c1, #ec9649);
+}
+
+.extra-spacing{
+	grid-row: -2;
 }
 
 @media only screen and (max-width: 1024px) {
@@ -721,20 +781,22 @@ body{
 	}
 
 	.periodic-table{
-		padding: 36px 3px 3px;
-		align-items: center;
-		grid-gap: 6vw;
+		padding: 0 6px;
+	}
+
+	.periodic-table .element{
+		padding: 0;
 	}
 
 	.element > div:nth-child(1){
 		font-size: 1.2vw;
 		padding: 2px;
+		padding-left: 3px;
 	}
 
 	.element > div:nth-child(2){
 		font-size: 1.8vw;
 		letter-spacing: .24vw;
-		padding: 6px 0px;
 	}
 
 	.element > div:nth-child(3){
@@ -743,30 +805,20 @@ body{
 
 	.element > div:nth-child(4){
 		font-size: 1vw;
-		padding: 1px;
+		padding-bottom: 2px;
 	}
 
-	.periodic-table > .spd{
-		grid-gap: 1px;
-	}
 
-	.spd > .s-block{
-		grid-gap: 1px;
-	}
-
-	.spd > .p-block{
-		grid-gap: 1px;
-	}
-
-	.spd > .d-block{
-		grid-gap: 1px;
-	}
-
-	.periodic-table > .f{
-		grid-gap: 1px;
-	}
-
-	.f > .f-block{
+	.periodic-table,
+	.periodic-table > .spd,
+	.spd > .s-block,
+	.s-block > div,
+	.spd > .p-block,
+	.p-block > div,
+	.spd > .d-block,
+	.d-block > div,
+	.periodic-table > .f-block,
+	.f-block > div{
 		grid-gap: 1px;
 	}
 }
@@ -833,6 +885,160 @@ body{
 
 	.to-table > .did-u-know > h1{
 		font-size: 4.2vw;
+	}
+
+	.element > div:nth-child(1){
+		font-size: 2vw;
+		padding-left: .45vw;
+	}
+
+	.element > div:nth-child(2){
+		font-size: 3.9vw;
+		letter-spacing: .3vw;
+	}
+
+	.element > div:nth-child(3){
+		display: initial;
+		font-size: 2.4vw;
+	}
+
+	.element > div:nth-child(4){
+		font-size: 2vw;
+		padding-bottom: 0;
+	}
+
+	.periodic-table{
+		grid-template-rows: 6vw 396vw 12vw 225vw 4.5vw;
+		padding: 18px;
+		/*calc(7/9 * 90vw) 4.5vw calc(7/9 * 90vw) 4.5vw calc(10/9 * 90vw) 4.5vw*/
+		/*calc(14/9 * 90vw)*/
+	}
+
+	.period,
+	.group{
+		display: none !important;
+	}
+
+	.group-name{
+		display: initial;
+		font-size: 4.5vw;
+		text-align: center;
+		align-self: end;
+		grid-column: 1 / end;
+	}
+
+	.periodic-table > .spd{
+		grid-row: 2 / span 1;
+		grid-template-rows: 15vw 12vw 90vw 12vw 105vw 12vw 150vw;
+		grid-template-columns: repeat(7,1fr);
+	}
+
+	.spd > [data-atomic-no="1"]{
+		grid-column: 4 / 5;
+		background: linear-gradient(#aaffa9, #11ffbd);
+	}
+
+	.group-name.s{
+		grid-row: 2 / span 1;
+	}
+
+	.spd > .s-block{
+		grid-row: 3 / span 1;
+		grid-column: 1 / end;
+		grid-template-rows: repeat(6,1fr);
+		grid-template-columns: repeat(6,1fr);
+		grid-gap: 2px;
+	}
+
+	.s-block > .alkali-metals{
+		grid-column: 3 / 4;
+		grid-gap: 2px;
+	}
+
+	.s-block > .alkaline-earth-metals{
+		grid-column: 4 / 5;
+		grid-gap: 2px;
+	}
+
+	.group-name.p{
+		grid-row: 4 / span 1;
+	}
+
+	.spd > .p-block{
+		grid-row: 5 / span 1;
+		grid-column: 1 / end;
+		grid-template-columns: repeat(6,1fr);
+		grid-template-rows: repeat(7,1fr);
+		grid-gap: 2px;
+	}
+
+	.p-block > div{
+		grid-gap: 2px;
+	}
+
+	.group-name.d{
+		grid-row: 6 / span 1;
+	}
+
+	.spd > .d-block{
+		grid-row: 7 / span 1;
+		grid-column: 1 / end;
+		grid-template-columns: repeat(6,1fr);
+		grid-template-rows: repeat(10,1fr);
+		grid-gap: 2px;
+	}
+
+	.d-block > div{
+		grid-auto-flow: column;
+		grid-row: 1 / end;
+		grid-column: span 1;
+		grid-template-columns: auto;
+		grid-template-rows: repeat(10,1fr);
+		grid-gap: 2px;
+	}
+
+	.d-block > .period-4{
+		grid-column: 2 / 3;
+	}
+
+	.d-block > .period-5{
+		grid-column: 3 / 4;
+	}
+
+	.d-block > .period-6{
+		grid-column: 4 / 5;
+	}
+
+	.d-block > .period-7{
+		grid-column: 5 / 6;
+	}
+
+	.group-name.f{
+		grid-row: 3 / span 1;
+	}
+
+	.periodic-table > .f-block{
+		grid-row: 4 / span 1;
+		grid-column: 1 / end;
+		grid-template-rows: repeat(15,1fr);
+		grid-template-columns: repeat(6,1fr);
+		grid-gap: 2px;
+	}
+
+	.f-block > div{
+		grid-column: span 1;
+		grid-row: 1 / end;
+		grid-template-columns:auto;
+		grid-template-rows: repeat(15,1fr);
+		grid-gap: 2px;
+	}
+
+	.f-block > .lanthanoids{
+		grid-column: 3/4;
+	}
+
+	.f-block > .actinoids{
+		grid-column: 4/5;
 	}
 }
 

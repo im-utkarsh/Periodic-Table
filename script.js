@@ -63,12 +63,7 @@ function background_change(){
 
 arrow.addEventListener('mouseenter', ()=>{
 	arrow.classList.add('active');
-	opening_content.style.willChange = 'clip-path';
 });
-
-opening_content.addEventListener('animationed', ()=>{
-	this.style.willChange = 'auto';
-})
 
 arrow.addEventListener('click', ()=>{
 	arrow.classList.add('clicked');
