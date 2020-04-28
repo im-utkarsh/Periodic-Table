@@ -3,7 +3,9 @@ const opening_content_animation = document.querySelector('.opening-content-anima
 const arrow = document.querySelector('.arrow');
 const to_table = document.querySelector('.to-table');
 const periodic_table = document.querySelector('.periodic-table');
+const elements = document.querySelectorAll('.element');
 let isFirstPage = true;
+let isPeriodicTable = false;
 let background = true;  // when opening-content is in front
 let color1 = '#5ffef4';
 let color2 = '#F04118';
@@ -74,6 +76,11 @@ arrow.addEventListener('click', ()=>{
 			to_table.classList.remove('active');
 			to_table.classList.add('undo');
 			periodic_table.classList.add('active');
+			elements.forEach(element => {
+				element.addEventListener('click', ()=>{
+					element.classList.toggle('active');
+				});
+			});
 		});
 		opening_content.style.display = 'none';
 	}, 5400);
