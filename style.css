@@ -5,6 +5,7 @@
 body{
 	margin: 0;
 	overflow: hidden;
+	font-family: 'Roboto', sans-serif;
 }
 
 .container{
@@ -392,7 +393,6 @@ body{
 	border: 1px solid rgb(51,51,51);
 	color: transparent;
 	border-radius: 9px;
-	font-family: 'Roboto', sans-serif;
 	text-align: center;
 	padding: 5.4vh 2.1vw;
 	font-size: 1.26vw;
@@ -533,7 +533,6 @@ body{
 	background: #FFF;
 	transform: translate3d(0,-100%,0);
 	transition: transform .27s linear .6s;
-	font-family: 'Roboto', sans-serif;
 	display: grid;
 	overflow-y: auto;
 	grid-template-rows: 6vw calc(7/9 * 63vw) 4.5vw calc(2/9 * 63vw) 4.5vw;
@@ -553,9 +552,10 @@ body{
 .periodic-table .element{
 	cursor: pointer;
 	opacity: .84;
+	text-align: center;
 	transform: translate3d(0,0,0) scale(1);
 	perspective: 700px;
-	transition: all .6s;
+	transition: all .3s;
 }
 
 .periodic-table .element:hover{
@@ -572,6 +572,11 @@ body{
 	transition: transform 0.6s;
 }
 
+.element.active .card {
+	transform: rotateY(180deg) translate3d(0,0,0);
+	box-shadow: 0 0 9px 0 rgba(0,0,0,.135);
+}
+
 .card > .front-face,
 .card > .back-face{
 	position: absolute;
@@ -582,25 +587,12 @@ body{
 	justify-content: space-around;
 	align-items: center;
 	border-radius: 3px;
-	padding: 3px 0px;
 	backface-visibility: hidden;
 }
 
 .element .front-face{
 	color: rgba(27,27,27);
-}
-
-.element .back-face {
-	background: #292826;
-	color:#F9D342;
-	font-size: .81vw;
-	text-align: center;
-	transform: rotateY(180deg) translate3d(0,0,0);
-}
-
-.element.active .card {
-	transform: rotateY(180deg) translate3d(0,0,0);
-	box-shadow: 0 0 9px 0 rgba(0,0,0,.135);
+	padding: 3px 0px;
 }
 
 .front-face > div:nth-child(1){
@@ -616,12 +608,40 @@ body{
 }
 
 .front-face > div:nth-child(3){
-	font-size: .78vw;
+	font-size: .84vw;
 }
 
 .front-face > div:nth-child(4){
 	font-size: .84vw;
 	letter-spacing: 1px;
+}
+
+[data-atomic-no="104"] .front-face > div:nth-child(3),
+[data-atomic-no="110"] .front-face > div:nth-child(3){
+	font-size: .8vw;
+}
+
+[data-atomic-no="59"] .front-face > div:nth-child(3){
+	font-size: .76vw;
+}
+
+.element .back-face {
+	background: #292826;
+	padding: 6px 1.8px;
+	color:#F9D342;
+	font-size: .9vw;
+	letter-spacing: .3px;
+	transform: rotateY(180deg) translate3d(0,0,0);
+}
+
+.back-face > div:nth-child(2){
+	font-size: .75vw;
+	font-weight: bolder;
+	letter-spacing: .75px;
+}
+
+.sup{
+	font-size: 72%;
 }
 
 .periodic-table > .spd{
@@ -758,6 +778,10 @@ body{
 	background: linear-gradient(#f5a08a, #fbc24c);
 }
 
+.unknown .front-face{
+	background: linear-gradient(#657a8f, #bcbcbc);
+}
+
 .periodic-table > .f-block{
 	display: grid;
 	grid-row: 4 / span 1;
@@ -780,6 +804,11 @@ body{
 
 .actinoids .front-face{
 	background: linear-gradient(#3193c1, #ec9649);
+}
+
+.element.lanthanoids .back-face,
+.element.actinoids .back-face{
+	font-size: .8vw;
 }
 
 .extra-spacing{
@@ -809,7 +838,8 @@ body{
 		padding: 0 6px;
 	}
 
-	.periodic-table .element{
+	.element .front-face,
+	.element .back-face{
 		padding: 0;
 	}
 
@@ -834,7 +864,12 @@ body{
 	}
 
 	.element .back-face{
-		font-size: .93vw;
+		font-size: 1vw;
+	}
+
+	.back-face > div:nth-child(2){
+		font-size: .8vw;
+		letter-spacing: .42px;
 	}
 
 	.periodic-table,
@@ -937,6 +972,27 @@ body{
 	.front-face > div:nth-child(4){
 		font-size: 2vw;
 		padding-bottom: 0;
+	}
+
+	.element .back-face {
+		padding: 3px 0;
+		color:#F9D342;
+		font-size: 2.1vw;
+		letter-spacing: .36px;
+	}
+
+	.back-face > div:nth-child(2){
+		font-size: 1.8vw;
+		letter-spacing: .18vw;
+	}
+
+	[data-atomic-no="104"] .front-face > div:nth-child(3),
+	[data-atomic-no="110"] .front-face > div:nth-child(3){
+		font-size: 2.3vw;
+	}
+
+	[data-atomic-no="59"] .front-face > div:nth-child(3){
+		font-size: 2.2vw;
 	}
 
 	.periodic-table{
