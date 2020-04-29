@@ -5,8 +5,7 @@ const to_table = document.querySelector('.to-table');
 const periodic_table = document.querySelector('.periodic-table');
 const elements = document.querySelectorAll('.element');
 let isFirstPage = true;
-let isPeriodicTable = false;
-let background = true;  // when opening-content is in front
+let background = true;
 let color1 = '#5ffef4';
 let color2 = '#F04118';
 let i = 0;
@@ -14,7 +13,7 @@ let a = 0;
 let isBackspace = true;
 let nums = [];
 const textArray = [
-	'Understand the Fundamentals',
+	'Understand the Fundamentals.',
 	'Thrive Extraordinary Minds.',
 	'Master Periodic Table effortlessly.',
 	'Evolve Critical thinking skills.',
