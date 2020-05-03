@@ -1,9 +1,17 @@
 const opening_content = document.querySelector('.opening-content');
 const opening_content_animation = document.querySelector('.opening-content-animation');
-const arrow = document.querySelector('.arrow');
+const arrow = opening_content.querySelector('.arrow');
 const to_table = document.querySelector('.to-table');
 const periodic_table = document.querySelector('.periodic-table');
-const elements = document.querySelectorAll('.element');
+const elements = periodic_table.querySelectorAll('.element');
+const flip_all = periodic_table.querySelector('.flip-all');
+const metals = periodic_table.querySelectorAll('.element:not(.non-metal):not(.metalloid)');
+const non_metals = periodic_table.querySelectorAll('.element.non-metal');
+const metalloids = periodic_table.querySelectorAll('.element.metalloid');
+const guide = periodic_table.querySelector('.periodic-table-guide');
+const once = {
+  once : true
+};
 let isFirstPage = true;
 let background = true;
 let color1 = '#5ffef4';
@@ -64,30 +72,117 @@ function background_change(){
 
 arrow.addEventListener('mouseenter', ()=>{
 	arrow.classList.add('active');
-});
+}, once);
 
 arrow.addEventListener('click', ()=>{
 	arrow.classList.add('clicked');
 	opening_content.style.animationPlayState = 'running';
 	to_table.classList.add('active');
-	setTimeout(function(){
-		to_table.addEventListener('click',()=>{
-			to_table.classList.remove('active');
-			to_table.classList.add('undo');
-			periodic_table.classList.add('active');
-			elements.forEach(element => {
-				element.addEventListener('click', ()=>{
-					element.classList.toggle('active');
-				});
-			});
-		});
-		opening_content.style.display = 'none';
-	}, 5400);
+	setTimeout(function(){table_activated();}, 5400);
 	
 	setTimeout(()=>{
 		isFirstPage = false;
 	}, 4000);
-});
+}, once);
+
+function table_activated(){
+	to_table.addEventListener('click',()=>{
+		to_table.classList.remove('active');
+		to_table.classList.add('undo');
+		periodic_table.classList.add('active');
+		elements.forEach(element => {
+			element.addEventListener('click', ()=>{
+				element.classList.toggle('active');
+			});
+		});
+		flip_all.addEventListener('click', ()=>{
+			elements.forEach(element =>{
+				element.classList.remove('active');
+			});
+		});
+		guide.addEventListener('mouseout', ()=>{
+			elements.forEach(element =>{
+				element.classList.remove('hidden');
+			});
+		});
+		guide.addEventListener('mouseover', guider);
+	}, once);
+	opening_content.style.display = 'none';
+}
+
+function guider(event){
+	if (event.target.classList.contains('metal')) {
+		elements.forEach(element => {
+			if (element.classList.contains('non-metal') || element.classList.contains('metalloid') || element.classList.contains('unknown'))
+				element.classList.add('hidden');
+		});
+	} else if (event.target.classList.contains('non-metal')) {
+		elements.forEach(element =>{
+			if (!element.classList.contains('non-metal'))
+				element.classList.add('hidden');
+		});
+	}else if (event.target.classList.contains('metalloid')) {
+		elements.forEach(element =>{
+			if (!element.classList.contains('metalloid'))
+				element.classList.add('hidden');
+		});
+	}else if (event.target.classList.contains('name-s')) {
+		elements.forEach(element =>{
+			if (!element.parentElement.parentElement.classList.contains('s-block'))
+				element.classList.add('hidden');
+		});
+	} else if (event.target.classList.contains('name-alkali-metals')) {
+		elements.forEach(element =>{
+			if (!element.parentElement.classList.contains('alkali-metals'))
+				element.classList.add('hidden');
+		});
+	} else if (event.target.classList.contains('name-alkaline-metals')) {
+		elements.forEach(element =>{
+			if (!element.parentElement.classList.contains('alkaline-earth-metals'))
+				element.classList.add('hidden');
+		});
+	} else if (event.target.classList.contains('name-d')) {
+		elements.forEach(element =>{
+			if (!element.parentElement.parentElement.classList.contains('d-block'))
+				element.classList.add('hidden');
+		});
+	} else if (event.target.classList.contains('name-f')) {
+		elements.forEach(element =>{
+			if (!element.parentElement.parentElement.classList.contains('f-block'))
+				element.classList.add('hidden');
+		});
+	} else if (event.target.classList.contains('name-lanthanoids')) {
+		elements.forEach(element =>{
+			if (!element.parentElement.classList.contains('lanthanoids'))
+				element.classList.add('hidden');
+		});
+	} else if (event.target.classList.contains('name-actinoids')) {
+		elements.forEach(element =>{
+			if (!element.parentElement.classList.contains('actinoids'))
+				element.classList.add('hidden');
+		});
+	} else if (event.target.classList.contains('name-p')) {
+		elements.forEach(element =>{
+			if (!element.parentElement.parentElement.classList.contains('p-block'))
+				element.classList.add('hidden');
+		});
+	} else if (event.target.classList.contains('name-chalcogens')) {
+		elements.forEach(element =>{
+			if (!element.parentElement.classList.contains('chalcogens'))
+				element.classList.add('hidden');
+		});
+	} else if (event.target.classList.contains('name-halogens')) {
+		elements.forEach(element =>{
+			if (!element.parentElement.classList.contains('halogens'))
+				element.classList.add('hidden');
+		});
+	} else if (event.target.classList.contains('name-noble-gases')) {
+		elements.forEach(element =>{
+			if (!element.parentElement.classList.contains('noble-gases'))
+				element.classList.add('hidden');
+		});
+	}
+}
 
 function typeWrite(array){
 	if (isFirstPage) {
